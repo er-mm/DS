@@ -1,0 +1,24 @@
+{
+  "name": "data-structures",
+  "version": "1.0.0",
+  "description": "ds",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/er-mm/DS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/er-mm/DS/issues"
+  },
+  "homepage": "https://github.com/er-mm/DS#readme",
+  "devDependencies": {
+    "lodash": "^4.17.15",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.8.3"
+  }
+}

@@ -8,14 +8,14 @@
  * fizzBuzz(5); it will print 1 2 fizz 4 buzz
  */
 
- const numberForFizzBuzz = 15;
- function fizzBuzz(n: number) {
-    // Normal anyone can think is: 
-    for(let i=1;i<=n;i++) {
-        if(i % 3 === 0 && i % 5 === 0) console.log("FizzBuzz")
-        else if (i % 3 === 0) console.log("Fizz")
-        else if (i % 5 === 0) console.log("Buzz")
-        else console.log(i)
-    }
- }
- fizzBuzz(numberForFizzBuzz);
+const numberForFizzBuzz = 15;
+function fizzBuzz1(n: number) {
+	for (let i = 1; i <= n; i++) {
+		if (i % 3 === 0 && i % 5 === 0) console.log("fizzbuzz"); //we can write it as if(i % 15 === 0)
+		else if (i % 3 === 0) console.log("fizz");
+		else if (i % 5 === 0) console.log("buzz");
+		else console.log(i);
+	}
+}
+fizzBuzz1(numberForFizzBuzz);
+

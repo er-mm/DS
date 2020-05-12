@@ -61,6 +61,7 @@ const maxChar = maxCharInString(mostUsedChar);
 console.log('Max char in String is-> ', maxChar)
 
 //Ques2: Does string A have the same char/properties as string B (is it anagram?)
+// Will discuss briefly in Anagrams chapter
 let string1 = "Hello World";
 let string2 = "W!rld Hello";
 function isAnagram(string1: string, string2: string) {

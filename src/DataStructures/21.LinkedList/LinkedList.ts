@@ -38,7 +38,9 @@ export default class LinkedList {
 	insertFirst(data: any) {
 		// if we dont have data it will pioint to head but if we have data this.head will point to latest data 
 		// and the old data will shift forwards 
-		this.head = new Node(data, this.head); 
+		this.insertAt(data, 0);
+		// or
+		// this.head = new Node(data, this.head); 
 
 	}
 
@@ -82,7 +84,9 @@ export default class LinkedList {
 	*list.getFirst(); // returns Node instance with data 'b' 
 	*/
 	getFirst(): Node {
-		return this.head; // returns Node instance with data '20'
+		return this.getAt(0); // reusability
+		// or
+		// return this.head; // returns Node instance with data '20'
 	}
 
 	/**
@@ -119,6 +123,9 @@ export default class LinkedList {
 		// 	}
 		// 	node = node.next;
 		// }
+
+		// or for reusability just one line
+		// return this.getAt(this.size() - 1);
 	}
 
 	/**
@@ -158,6 +165,8 @@ export default class LinkedList {
 		return node.next;
 		// or
 		// return this.head.next
+		// or for reusability
+		// return this.removeAt(0)
 	}
 
 	/**
@@ -189,6 +198,9 @@ export default class LinkedList {
 			nextNode = nextNode.next;
 		}
 		prevNode.next = null;
+
+		// or for reusability
+		//this.removeAt(this.size() - 1);
 	}
 
 	/**
@@ -208,6 +220,9 @@ export default class LinkedList {
 		const node = new Node(data);
 		if(!this.head) this.head = node;
 		else this.getLast().next = node;
+
+		// or for reusability
+		// this.insertAt(data, this.size())
 	}
 
 	/**
@@ -253,7 +268,9 @@ export default class LinkedList {
 	removeAt(n: number){
 		if(!this.head) return null;
 		if(n === 0) {
-			this.removeFirst(); // or this.head = this.head.next
+			this.head = this.head.next;
+			// or
+			//this.removeFirst(); // or this.head = this.head.next
 			return;
 		}
 		let prevNode = this.getAt(n - 1);
@@ -284,17 +301,49 @@ export default class LinkedList {
 			return;
 		}
 		if(n === 0) {
-			this.insertFirst(data);
+			this.head = new Node(data, this.head);
+			//or 
+			//this.insertFirst(data);
 			return;
 		}
-		if(!this.getAt(n)) {
-			this.getLast().next = newNode;
-			return;
+		const prevNode = this.getAt(n - 1) || this.getLast();
+		const node = new Node(data, prevNode.next);
+		prevNode.next = node;
+		// or
+		// if(!this.getAt(n)) {
+		// 	this.getLast().next = newNode;
+		// 	return;
+		// }
+		// let prevNode = this.getAt(n-1);
+		// prevNode.next = new Node(data, this.getAt(n));
+	}
+
+	forEach(fn: Function) {
+		let node = this.head;
+		let counter = 0;
+		while(node){
+			fn(node, counter);
+			node = node.next;
+			counter++;
 		}
-		let prevNode = this.getAt(n-1);
-		prevNode.next = new Node(data, this.getAt(n));
-		
+	}
+
+	*[Symbol.iterator]() {
+		let node = this.head;
+		while(node){
+			yield node;
+			node = node.next;
+		}
 	}
 
 }
 
+/**
+ * We can reuse the code of linked list like
+ * insertFirst(data) => insertAt(data,0)
+ * insertLast(data) => insertAt(data, this.size()-1)
+ * removeFirst() => removeAt(0)
+ * removeLast() => removeAt(this.size()-1)
+ * getFirst() => getAt(0)
+ * getLast() => getAt(this.size()-1)
+ */

@@ -58,3 +58,39 @@ console.log(list.size());
 console.log('*****insertAt*****');
 list.insertAt(60, 2);
 console.log(list.getLast());
+
+
+/**
+ * forEach with linkedlist
+ * Argument -> function
+ * directions -> Calls the provided function with every node of the chain
+ * example
+ * const list = new List();
+	list.insertLast(1);
+	list.insertLast(2);
+	list.insertLast(3);
+	list.insertLast(4);
+	list.forEach(node => {
+	node.data += 10;
+	});
+	list.getAt(0); // Returns node with data '11'
+ */
+console.log('*****iterations*****');
+const listForForEach = new LinkedList();
+listForForEach.insertLast(1);
+listForForEach.insertLast(2);
+listForForEach.insertLast(3);
+listForForEach.insertLast(4);
+// I want add 10 to every element in linkedlist
+
+// forEach
+// listForForEach.forEach((node:any)=> {
+// 	node.data += 10
+// });
+
+// for of
+for(let node of listForForEach) {
+	node.data += 10;
+	console.log(node);
+}
+console.log(listForForEach);

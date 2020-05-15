@@ -10,7 +10,7 @@
 //   s.pop(); // returns 2
 //   s.pop(); // returns 1
 
-class Stack {
+export default class Stack {
     private data: any[];
     constructor(){
         this.data = [];

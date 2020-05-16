@@ -301,7 +301,7 @@ export default class LinkedList {
 			return;
 		}
 		if(n === 0) {
-			this.head = new Node(data, this.head);
+			this.head = new Node(data, this.getAt(n));
 			//or 
 			//this.insertFirst(data);
 			return;

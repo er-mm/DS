@@ -80,7 +80,7 @@ const listForForEach = new LinkedList();
 listForForEach.insertLast(1);
 listForForEach.insertLast(2);
 listForForEach.insertLast(3);
-listForForEach.insertLast(4);
+listForForEach.insertAt(4, 0);
 // I want add 10 to every element in linkedlist
 
 // forEach
@@ -89,8 +89,8 @@ listForForEach.insertLast(4);
 // });
 
 // for of
-for(let node of listForForEach) {
-	node.data += 10;
-	console.log(node);
-}
+// for(let node of listForForEach) {
+// 	node.data += 10;
+// 	console.log(node);
+// }
 console.log(listForForEach);

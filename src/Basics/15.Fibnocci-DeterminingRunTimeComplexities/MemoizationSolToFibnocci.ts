@@ -36,3 +36,41 @@ function slowFib(n: number): any {
 
 const fib = memoize(slowFib)
 console.log(fib(4));
+
+// Memoized sol for fibonacchi 
+// function fib(n, memo=[]){
+// 	if(memo[n] !== undefined) return memo[n]
+// 	if(n <= 2) return 1;
+// 	var res = fib(n-1, memo) + fib(n-2, memo);
+// 	memo[n] = res;
+// 	return res;
+//   }
+
+// another memoised solution
+// function fib(n, savedFib={}) {
+// 	// base case
+// 	if (n <= 0) { return 0; }
+// 	if (n <= 2) { return 1; }
+ 
+// 	// memoize
+// 	if (savedFib[n - 1] === undefined) {
+// 		 savedFib[n - 1] = fib(n - 1, savedFib);
+// 	}
+ 
+// 	// memoize
+// 	if (savedFib[n - 2] === undefined) {
+// 		 savedFib[n - 2] = fib(n - 2, savedFib);
+// 	}
+ 
+// 	return savedFib[n - 1] + savedFib[n - 2];
+//  }
+
+// Tabulated Version - have done this before
+// function fib(n){
+//     if(n <= 2) return 1;
+//     var fibNums = [0,1,1];
+//     for(var i = 3; i <= n; i++){
+//         fibNums[i] = fibNums[i-1] + fibNums[i-2];
+//     }
+//     return fibNums[n];
+// }

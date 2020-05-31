@@ -94,3 +94,10 @@ listForForEach.insertAt(4, 0);
 // 	console.log(node);
 // }
 console.log(listForForEach);
+
+console.log('*****reverse******');
+listForForEach.reverse();
+console.log(listForForEach);
+console.log(listForForEach.head.next);
+console.log(listForForEach.head.next.next);
+console.log(listForForEach.head.next.next.next);

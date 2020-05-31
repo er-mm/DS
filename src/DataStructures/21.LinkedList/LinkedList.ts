@@ -317,6 +317,19 @@ export default class LinkedList {
 		// let prevNode = this.getAt(n-1);
 		// prevNode.next = new Node(data, this.getAt(n));
 	}
+	// head->4 1 2 3
+	reverse() {
+		let node  = this.head;
+		this.head = this.getAt(this.size()-1);
+		let next;
+		let prev = null;
+		while(node){
+			next = node.next;
+			node.next = prev;
+			prev = node;
+			node = next;
+		}
+	}
 
 	forEach(fn: Function) {
 		let node = this.head;

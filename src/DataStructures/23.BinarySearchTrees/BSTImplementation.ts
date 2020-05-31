@@ -72,13 +72,13 @@ export default class BSTNode {
 	// less than the parent node's value, and that
 	// every node's right hand child is greater than
 	// the parent
-	 isValidBST(node:any, min:any = null, max:any = null) {
-		if(max !== null && node.data > max) return false;
-		if(min !== null && node.data < min) return false;
-		if(node.leftNode && !this.isValidBST(node.leftNode, min, node.data)) return false;
-		if(node.rightNode && !this.isValidBST(node.rightNode, node.data, max)) return false;
+	isValidBST(node: any, min: any = null, max: any = null) {
+		if (max !== null && node.data > max) return false;
+		if (min !== null && node.data < min) return false;
+		if (node.leftNode && !this.isValidBST(node.leftNode, min, node.data)) return false;
+		if (node.rightNode && !this.isValidBST(node.rightNode, node.data, max)) return false;
 		return true;
-	 }
+	}
 }
 
 const bst = new BSTNode(10);

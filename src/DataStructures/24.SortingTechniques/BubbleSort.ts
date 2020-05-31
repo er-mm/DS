@@ -14,9 +14,10 @@ function bubbleSort(arr: number[]) {
 	for (let i = 0; i < arr.length; i++) {
 		for (let j = 0; j < arr.length - i; j++) {
 			if (arr[j] > arr[j + 1]) {
-				let temp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = temp;
+				// let temp = arr[j];
+				// arr[j] = arr[j + 1];
+				// arr[j + 1] = temp;
+				[arr[j], arr[j+1]] = [arr[j+1], arr[j]]; // ES6
 			}
 		}
 	}
@@ -24,3 +25,25 @@ function bubbleSort(arr: number[]) {
 }
 
 console.log(bubbleSort(arr1));
+
+//Optimized: if data is nearly sorted
+function bubbleSort1(arr: number[]) {
+	let noSwaps;
+	for (let i = 0; i < arr.length; i++) {
+		noSwaps = true;
+		for (let j = 0; j < arr.length - i; j++) {
+			if (arr[j] > arr[j + 1]) {
+				// let temp = arr[j];
+				// arr[j] = arr[j + 1];
+				// arr[j + 1] = temp;
+				[arr[j], arr[j+1]] = [arr[j+1], arr[j]]; // ES6
+				noSwaps = false;
+				console.log('hh');
+			}
+		}
+		if(noSwaps) break;
+	}
+	return arr;
+}
+
+console.log(bubbleSort1(arr1));

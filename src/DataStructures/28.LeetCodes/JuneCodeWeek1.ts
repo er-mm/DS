@@ -91,4 +91,99 @@
 //  */
 //______________________________________________________________________________________________________________________________________________________
 
-// Ques 2: 
+// Ques 2: Delete Node in a Linked List
+// Write a function to delete a node (except the tail) in a singly linked list, given only access to that node.
+// Example 1:
+
+// Input: head = [4,5,1,9], node = 5
+// Output: [4,1,9]
+// Explanation: You are given the second node with value 5, the linked list should become 4 -> 1 -> 9 after calling your function.
+// Example 2:
+
+// Input: head = [4,5,1,9], node = 1
+// Output: [4,5,9]
+// Explanation: You are given the third node with value 1, the linked list should become 4 -> 5 -> 9 after calling your f
+// Note:
+
+// The linked list will have at least two elements.
+// All of the nodes' values will be unique.
+// The given node will not be the tail and it will always be a valid node of the linked list.
+// Do not return anything from your function.
+
+//Solution : 
+/**
+ * Definition for singly-linked list.
+ * function ListNode(val) {
+ *     this.val = val;
+ *     this.next = null;
+ * }
+ */
+/**
+ * @param {ListNode} node
+ * @return {void} Do not return anything, modify node in-place instead.
+ */
+// var deleteNode = function(node) {
+//     let temp = node.next;
+//     node.val = temp.val;
+//     node.next = temp.next;
+//     temp = null;
+    
+// };
+
+// OR 
+// public void deleteNode(ListNode node) {
+//     node.val = node.next.val;
+//     node.next = node.next.next;
+// }
+// _________________________________________________________________________________________________________________________________
+
+//Two City Scheduling
+
+// There are 2N people a company is planning to interview. The cost of flying the i-th person to city A is costs[i][0], and the cost of flying the i-th person to city B is costs[i][1].
+
+// Return the minimum cost to fly every person to a city such that exactly N people arrive in each city.
+
+ 
+
+// Example 1:
+
+// Input: [[10,20],[30,200],[400,50],[30,20]]
+// Output: 110
+// Explanation: 
+// The first person goes to city A for a cost of 10.
+// The second person goes to city A for a cost of 30.
+// The third person goes to city B for a cost of 50.
+// The fourth person goes to city B for a cost of 20.
+
+// The total minimum cost is 10 + 30 + 50 + 20 = 110 to have half the people interviewing in each city.
+ 
+
+// Note:
+
+// 1 <= costs.length <= 100
+// It is guaranteed that costs.length is even.
+// 1 <= costs[i][0], costs[i][1] <= 1000
+//
+//  Solution : 
+/**
+ * @param {number[][]} costs
+ * @return {number}
+ */
+// var twoCitySchedCost = function(costs) {
+//     let minCost = 0;
+//     let a = 0;
+//     let b = 0;
+//     costs.sort((a,b) => Math.abs(b[0]-b[1]) - Math.abs(a[0]-a[1]));
+//     let half = costs.length / 2;
+//     for(let i=0; i< 2*half; i++){
+//         if((costs[i][0] < costs[i][1] && a < half) || b===half){
+//             a++;
+//             minCost += costs[i][0]
+//         } else {
+//             b++;
+//             minCost += costs[i][1]
+//         }
+//     }
+        
+//     return minCost;
+// };

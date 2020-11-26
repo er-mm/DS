@@ -5,6 +5,7 @@ function reverseString1(str: string) {
 		.split('')
 		.reverse()
 		.join('');
+	// return [...str].reverse().join(''); 
 }
 const reversedString1 = reverseString1(str);
 console.log('reverseString by sol #1 -> ', reversedString1);

@@ -17,11 +17,11 @@ function memoize(fn: any) {
 	return function (this: any, ...args: any) { // this anonymus function here is nothing but fib which is declared below at const
 		// to make general we use any number of arguments
 		// check if something present in cache[args] if it is then return
-		console.log(args);
+		// console.log(args);
 		if (cache[args]) return cache[args];
 		const result = fn.apply(this, args);
 		cache[args] = result;
-		console.log(cache);
+		// console.log(cache);
 		return result;
 	}
 }
